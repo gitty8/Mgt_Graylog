@@ -45,6 +45,18 @@
                                 <active>1</active>
                             </depends>
                         </host>
+                        <severities translate="label">
+                            <label>Severities</label>
+                            <comment>see class Mgt_Graylog_Model_Log</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </severities>
                         <port translate="label">
                             <label>Port</label>
                             <comment>Default: 12201</comment>

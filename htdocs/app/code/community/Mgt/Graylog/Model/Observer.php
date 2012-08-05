@@ -25,13 +25,11 @@ class Mgt_GrayLog_Model_Observer
     public function addAdminhtmlDashboardTab(Varien_Event_Observer $observer)
     {
        $block = $observer->getEvent()->getBlock();
-       //$isGraylogEnabled = Mage::getStoreConfig(Wee_Log::XML_PATH_GRAYLOG_ENABLED);
-       $isGraylogEnabled = 1;
-       if ($block && $block instanceof Mage_Adminhtml_Block_Dashboard_Grids && $isGraylogEnabled) {
+       $isGraylogEnabled = Mage::helper('mgt_graylog')->isEnabled();
+       if ($block && ($block instanceof Mage_Adminhtml_Block_Dashboard_Grids) && $isGraylogEnabled) {
            $dashboardTab = array(
                'label'     => Mage::helper('core')->__('Graylog Dashboard'),
                'content'   => Mage::app()->getLayout()->createBlock('mgt_graylog_adminhtml/dashboard_tab_graylog_dashboard')->toHtml(),
-               'active'   => true
            );
            $block->addTab('graylog_dashboard', $dashboardTab);
        }
@@ -52,7 +50,7 @@ class Mgt_GrayLog_Model_Observer
                     $logMessage .= $key.PHP_EOL.$value.PHP_EOL.PHP_EOL;
                 }
             }
-            //Wee_Log::error('magento/error', $exception->getMessage(), $logMessage);
+            Mgt_Graylog_Model_Log::error('magento/error', $exception->getMessage(), $logMessage);
         }
     }
 }

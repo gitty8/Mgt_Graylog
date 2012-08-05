@@ -22,5 +22,9 @@
 
 class Mgt_Graylog_Helper_Data extends Mgt_Base_Helper_Data
 {
-
+    public function isEnabled()
+    {
+        $isEnabled = (int)Mage::getStoreConfig(Mgt_Graylog_Model_Log::XML_PATH_GRAYLOG_ENABLED);
+        return $isEnabled;
+    }
 }

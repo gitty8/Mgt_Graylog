@@ -24,6 +24,11 @@
                 <class>Mgt_Graylog_Helper</class>
             </mgt_graylog>
         </helpers>
+        <log>
+            <core>
+                <writer_model>Mgt_Graylog_Model_Writer_Graylog</writer_model>
+            </core>
+        </log>
         <events>
             <mage_run_exception>
                 <observers>
@@ -69,11 +74,22 @@
                 </admin>
             </resources>
         </acl>
+        <events>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <mgt_graylog_adminhtml_dashboard_tab_grid>
+                        <class>mgt_graylog/observer</class>
+                        <method>addAdminhtmlDashboardTab</method>
+                    </mgt_graylog_adminhtml_dashboard_tab_grid>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+        </events>
     </adminhtml>
     <default>
         <mgt_graylog>
             <mgt_graylog>
                 <active>0</active>
+                <severities>31</severities>
                 <port>12201</port>
             </mgt_graylog>
         </mgt_graylog>

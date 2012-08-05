@@ -36,5 +36,4 @@ class Mgt_Graylog_Adminhtml_GraylogController extends Mage_Adminhtml_Controller_
     {
         $this->getLayout()->getBlock('content')->append($block);
     }
-    
 }

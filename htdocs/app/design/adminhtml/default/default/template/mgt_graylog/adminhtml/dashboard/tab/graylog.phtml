@@ -1,0 +1,12 @@
+<?php 
+  $iframeUrl = $this->getIframeUrl();
+?>
+
+<?php if ($iframeUrl): ?>
+
+<button type="button" class="scalable" onclick="setLocation('<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/graylog/index'); ?>')"><span><?php echo $this->__('Open Graylog');?></span></button>
+
+<div id="dashboardContent">
+  <iframe name="mgt-graylog" src="<?php echo $iframeUrl; ?>" style="width: 100%; border: 0px; height: 1500px;" frameborder="0"></iframe>
+</div>
+<?php endif ?>

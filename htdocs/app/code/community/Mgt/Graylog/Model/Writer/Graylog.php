@@ -25,7 +25,7 @@ class Mgt_Graylog_Model_Writer_Graylog extends Zend_Log_Writer_Abstract
     protected function _write($event)
     {
         $message = $event['message'];
-        //Wee_Log::error('magento/devlog', $message, $message);
+        Mgt_Graylog_Model_Log::error('magento/devlog', $message, $message);
     }
     
     static public function factory($config)

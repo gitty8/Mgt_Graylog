@@ -25,7 +25,7 @@ class Mgt_Graylog_Model_Log
     const XML_PATH_GRAYLOG_ENABLED  = 'mgt_graylog/mgt_graylog/active';
     const XML_PATH_GRAYLOG_HOST  = 'mgt_graylog/mgt_graylog/host';
     const XML_PATH_GRAYLOG_PORT  = 'mgt_graylog/mgt_graylog/port';
-    const XML_PATH_GRAYLOG_SEVERITIES  = 'dev/log/graylog_severities';
+    const XML_PATH_GRAYLOG_SEVERITIES  = 'mgt_graylog/mgt_graylog/severities';
     
     // levels
     const ALERT = 1;
@@ -188,15 +188,15 @@ class Mgt_Graylog_Model_Log
     public static function getLogger()
     {
         if (!self::$_logger) {
-            $isGraylogEnabled = Mage::getStoreConfig(self::XML_PATH_GRAYLOG_ENABLED);
+            $isGraylogEnabled = Mage::helper('mgt_graylog')->isEnabled();
             if ($isGraylogEnabled) {
                 $graylogOptions = array(
                     'host' => Mage::getStoreConfig(self::XML_PATH_GRAYLOG_HOST),
                     'port' => Mage::getStoreConfig(self::XML_PATH_GRAYLOG_PORT),
                 );
                 $severities = explode(',', Mage::getStoreConfig(self::XML_PATH_GRAYLOG_SEVERITIES));
-                if (count($severities) == 1 && $severities[0] == Mgt_Graylog_Log::ALL) {
-                    $severities = Mgt_Graylog_Log::ALL;
+                if (count($severities) == 1 && $severities[0] == Mgt_Graylog_Model_Log::ALL) {
+                    $severities = Mgt_Graylog_Model_Log::ALL;
                 }
                 $graylog = new Mgt_Graylog_Model_Graylog($graylogOptions);
                 self::addLogger($graylog, $severities);
