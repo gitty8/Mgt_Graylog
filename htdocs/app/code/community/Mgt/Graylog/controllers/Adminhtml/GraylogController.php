@@ -27,7 +27,7 @@ class Mgt_Graylog_Adminhtml_GraylogController extends Mage_Adminhtml_Controller_
         $this->_title($this->__('System'))
              ->_title($this->__('Graylog'));
         $this->loadLayout();
-        $this->_setActiveMenu('mgt-commerce');
+        $this->_setActiveMenu('mgtcommerce');
         $this->_addContent($this->getLayout()->createBlock('mgt_graylog_adminhtml/graylog', 'graylog'));
         $this->renderLayout();
     }
