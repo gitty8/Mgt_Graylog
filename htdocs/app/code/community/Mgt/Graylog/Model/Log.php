@@ -20,7 +20,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Mgt_Graylog_Log
+class Mgt_Graylog_Model_Log
 {
     const XML_PATH_GRAYLOG_ENABLED  = 'mgt_graylog/mgt_graylog/active';
     const XML_PATH_GRAYLOG_HOST  = 'mgt_graylog/mgt_graylog/host';

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <mgtcommerce>
+            <children>
+                <mgt_graylog translate="title" module="mgt_graylog">
+                    <title>Graylog</title>
+                    <action>adminhtml/graylog/</action>
+                    <sort_order>100</sort_order>
+                </mgt_graylog>
+            </children>
+       </mgtcommerce>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <mgt_graylog translate="title" module="mgt_graylog">
+                                        <title>Graylog</title>
+                                    </mgt_graylog>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

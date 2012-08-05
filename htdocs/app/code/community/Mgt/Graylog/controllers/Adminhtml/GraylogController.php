@@ -20,24 +20,21 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class Mgt_Graylog_Block_Adminhtml_System_Graylog extends Mage_Core_Block_Template
+class Mgt_Graylog_Adminhtml_GraylogController extends Mage_Adminhtml_Controller_Action
 {
-    protected $_iframeUrl;
-    
-    public function __construct()
+    public function indexAction()
     {
-        $this->_iframeUrl = 'http://'.Mage::getStoreConfig(Wee_Log::XML_PATH_GRAYLOG_HOST);
-        $this->setTemplate('mgt_graylog/adminhtml/system/graylog.phtml');
-        parent::__construct();
+        $this->_title($this->__('System'))
+             ->_title($this->__('Graylog'));
+        $this->loadLayout();
+        $this->_setActiveMenu('mgt-commerce');
+        $this->_addContent($this->getLayout()->createBlock('mgt_graylog_adminhtml/graylog', 'graylog'));
+        $this->renderLayout();
     }
 
-    public function setIframeUrl($iframeUrl)
+    protected function _addContent(Mage_Core_Block_Abstract $block)
     {
-        $this->_iframeUrl = $iframeUrl;
+        $this->getLayout()->getBlock('content')->append($block);
     }
     
-    public function getIframeUrl()
-    {
-        return $this->_iframeUrl;
-    }
 }

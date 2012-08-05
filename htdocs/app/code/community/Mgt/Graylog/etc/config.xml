@@ -10,6 +10,9 @@
             <mgt_graylog>
                 <class>Mgt_Graylog_Block</class>
             </mgt_graylog>
+            <mgt_graylog_adminhtml>
+                <class>Mgt_Graylog_Block_Adminhtml</class>
+            </mgt_graylog_adminhtml>
         </blocks>
         <models>
             <mgt_graylog>
@@ -32,6 +35,17 @@
             </mage_run_exception>
         </events>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mgt_Graylog before="Mage_Adminhtml">Mgt_Graylog_Adminhtml</Mgt_Graylog>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <adminhtml>
         <acl>
             <resources>

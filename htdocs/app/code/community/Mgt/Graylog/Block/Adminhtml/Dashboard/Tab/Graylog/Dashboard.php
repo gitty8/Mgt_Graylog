@@ -20,13 +20,14 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
+
 class Mgt_Graylog_Block_Adminhtml_Dashboard_Tab_Graylog_Dashboard extends Mage_Core_Block_Template
 {
     protected $_iframeUrl;
     
     public function __construct()
     {
-        $this->_iframeUrl = 'http://'.Mage::getStoreConfig(Wee_Log::XML_PATH_GRAYLOG_HOST).'/dashboard';
+        $this->_iframeUrl = 'http://'.Mage::getStoreConfig(Mgt_Graylog_Model_Log::XML_PATH_GRAYLOG_HOST).'/dashboard';
         $this->setTemplate('mgt_graylog/adminhtml/dashboard/tab/graylog.phtml');
         parent::__construct();
     }
