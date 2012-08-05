@@ -1,0 +1,28 @@
+<?php 
+  $iframeUrl = $this->getIframeUrl();
+?>
+
+<?php if ($iframeUrl): ?>
+<script>
+function asynchronIframe(src, containerId)
+{
+  var iFrameId = 'aynchronIfram_'+Math.floor(Math.random()*11);
+  var iFrame = jQuery('<iframe />', {
+    name: iFrameId,
+    id:   iFrameId,
+    src:  src,
+    style: 'width:100%;border:0px;',
+    framborder: '0'
+  });
+  jQuery("#"+containerId).html(iFrame);
+  var iFrame = jQuery("#"+iFrameId, parent.document.body);
+  iFrame.height(jQuery(document.body).height() + 30);
+}
+
+jQuery(document).ready(function() {
+  asynchronIframe('<?php echo $iframeUrl; ?>','graylogContainer');	
+});
+</script>
+
+<div id="graylogContainer"></div>
+<?php endif ?>

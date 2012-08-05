@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/php /var/www/Wee_Module_Deployment/htdocs/wee.php deploy /var/www/Mgt_Graylog Mgt_Graylog_1_4_1_7x_1.0.0 /var/www/Mgt_Graylog/data/
