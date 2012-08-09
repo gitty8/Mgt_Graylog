@@ -38,6 +38,10 @@ Here our "Akismet spam prevention for magento" is the best solution to kill the 
 
 ## CHANGELOG
 
+1.0.1
+
+* Add installation file
+
 1.0.0
 
 * Initial release
