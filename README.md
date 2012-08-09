@@ -13,6 +13,21 @@ Here our "Akismet spam prevention for magento" is the best solution to kill the 
 ## INSTALLATION
 
 * copy all files to your magento installation
+* Open app/Mage.php and add the following line
+
+public static function run($code = '', $type = 'store', $options = array())
+{
+        ......
+  } catch (Exception $e) {
+    if (self::isInstalled() || self::$_isDownloader) {
+    //add this line
+    self::dispatchEvent('mage_run_exception',array('exception' => $e));
+    //-----------------------------------------------------------------
+    self::printException($e);
+    exit();
+  }
+}
+
 * Clear the cache in Admin -> System -> Cache Management 
 * Login/Logout from Backend to reload the ACL
 * Go to Admin -> System -> Configuration -> MGT-COMMERCE.COM -> Graylog -> Settings -> Active -> Yes
